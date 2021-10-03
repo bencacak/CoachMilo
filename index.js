@@ -1,57 +1,37 @@
 // Imports discord.js library and required metadata
-const Discord = require("discord.js");
+const fs = require('fs');
+const Discord = require('discord.js');
+const { prefix } = require('./config.json');
+
 const client = new Discord.Client();
-const config = require("./config.json");
+client.commands = new Discord.Collection();
 
-// Imports exported functions
-// Pace converter
-const simplify = require("./modules/paceconverter/simplifytime.js");
-const standardize = require("./modules/paceconverter/standardizetime.js");
-const pace = require("./modules/paceconverter/paceconverter.js");
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
-// Looks for keywords in messages to reply to the channel and users
-client.on("message", async msg => {
+for (const file of commandFiles) {
+	const command = require(`./commands/${file}`);
+	// set a new item in the Collection
+	// with the key as the command name and the value as the exported module
+	client.commands.set(command.name, command);
+}
+
+client.on('message', msg => {
   
-  if (msg.author.bot) { 
-    return;
-  };
+	if (!msg.content.startsWith(prefix) || msg.author.bot) return;
 
-  // Starts the command listener
-  if (msg.content.startsWith("!")) {
-    
-    const args = msg.content.slice(config.prefix.length).trim().split(/ +/);
-	  const command = args.shift().toLowerCase();
-    
-    // Will convert a given running pace to min/km or min/mi
-    if (command === "pace") {
+	const args = msg.content.slice(prefix.length).trim().split(/ +/);
+	const command = args.shift().toLowerCase();
 
-      const value = msg.content.split("!pace ")[1];
-      
-      let unit;
-      let newUnit;
+	if (!client.commands.has(command)) return;
 
-      if (msg.content.includes("k")) {
-        unit = "km";
-        newUnit = "mi";
-      } else if (msg.content.includes("mi")) {
-        unit = "mi";
-        newUnit = "km";
-      };
+	try {
+		client.commands.get(command).execute(msg, args);
+	} catch (error) {
+		console.error(error);
+		msg.reply('there was an error trying to execute that command!');
+	};
 
-      try {
-        let standardizedPace = await standardize.standardizeTime(value);
-        let convertedPace = await pace.paceConverter(standardizedPace, unit);
-        let newSimplifiedPace = await simplify.simplifyTime(convertedPace);
-        await msg.reply(`a ${value} is equal to a ${newSimplifiedPace} ${newUnit}.`)
-      } catch (error) {
-       console.log(error);
-      };
-      
-    }; 
-
-  }; // Ends command prefix listener
-
-}); // Ends message listener
+});
 
 //Logs to the console when it is ready
 client.once('ready', () => {
