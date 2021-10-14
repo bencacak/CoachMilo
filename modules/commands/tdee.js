@@ -1,4 +1,4 @@
-const { imperialTdee, metricTdee } = require("../modules/tdeeinfo.js");
+const { imperialTdee, metricTdee } = require("../functions/tdeeinfo.js");
 
 module.exports = {
 	name: 'tdee',

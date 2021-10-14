@@ -1,7 +1,7 @@
 // Imports required pace converter converter functions
-const simplify = require("../modules/paceconverter/simplifytime.js");
-const standardize = require("../modules/paceconverter/standardizetime.js");
-const pace = require("../modules/paceconverter/paceconverter.js");
+const simplify = require("../functions/simplifytime.js");
+const standardize = require("../functions/standardizetime.js");
+const pace = require("../functions/paceconverter.js");
 
 
 module.exports = {

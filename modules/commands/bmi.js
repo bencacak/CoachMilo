@@ -1,4 +1,4 @@
-const { imperialBMI, metricBMI } = require("../modules/BMIinfo.js");
+const { imperialBMI, metricBMI } = require("../functions/BMIinfo.js");
 const { BMI } = require("fitness-calculator");
 
 module.exports = {

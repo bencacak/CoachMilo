@@ -1,15 +1,21 @@
 {
-  "name": "beasleyBot",
-  "version": "1.0.0",
-  "description": "",
+  "name": "Coach Milo",
+  "version": "2.2.0",
+  "description": "A health and fitness conpanion to discord.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "discord",
+    "bot",
+    "health",
+    "fitness"
+  ],
+  "author": "Ben Cacak",
+  "license": "GPLv3",
   "dependencies": {
+    "@replit/database": "^2.0.1",
     "discord.js": "^12.5.3",
     "fitness-calculator": "^1.1.0",
     "node-fetch": "^2.6.1"

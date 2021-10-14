@@ -6,10 +6,10 @@ const { prefix } = require('./config.json');
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+const commandFiles = fs.readdirSync('./modules/commands').filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
-	const command = require(`./commands/${file}`);
+	const command = require(`./modules/commands/${file}`);
 	// set a new item in the Collection
 	// with the key as the command name and the value as the exported module
 	client.commands.set(command.name, command);
@@ -17,7 +17,7 @@ for (const file of commandFiles) {
 
 client.on('message', msg => {
   
-	if (!msg.content.startsWith(prefix) || msg.author.bot) return;
+	//if (!msg.content.startsWith(prefix) || msg.author.bot) return;
 
 	const args = msg.content.slice(prefix.length).trim().split(/ +/);
 	const command = args.shift().toLowerCase();
@@ -36,7 +36,9 @@ client.on('message', msg => {
 //Logs to the console when it is ready
 client.once('ready', () => {
 	console.log(client.user.tag + " is live!");
-  client.user.setActivity("Chase Squirrely");
+    client.user.setActivity("Chase Squirrely");
+    const { db } = require("./modules/commands/record.js");
+    
 
 });
 
