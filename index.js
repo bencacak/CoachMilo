@@ -6,6 +6,11 @@ const { prefix } = require('./config.json');
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 
+//Imports Replit Database
+const Database = require("@replit/database");
+const db = new Database();
+module.exports.db = db;
+
 const commandFiles = fs.readdirSync('./modules/commands').filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
@@ -17,7 +22,7 @@ for (const file of commandFiles) {
 
 client.on('message', msg => {
   
-	//if (!msg.content.startsWith(prefix) || msg.author.bot) return;
+	if (!msg.content.startsWith(prefix) || msg.author.bot) return;
 
 	const args = msg.content.slice(prefix.length).trim().split(/ +/);
 	const command = args.shift().toLowerCase();
@@ -37,8 +42,9 @@ client.on('message', msg => {
 client.once('ready', () => {
 	console.log(client.user.tag + " is live!");
     client.user.setActivity("Chase Squirrely");
-    const { db } = require("./modules/commands/record.js");
-    
+    //db.list().then(keys => {console.log(keys)});
+    //db.get("696555195324432446").then(value => {console.log(value)});
+    //db.delete("userName").then(() => {});
 
 });
 
