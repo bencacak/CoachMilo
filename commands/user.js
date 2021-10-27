@@ -1,5 +1,5 @@
-const { db } = require("../../index.js");
-const { userData } = require("../functions/user-data.js");
+const { db } = require("../alpha-variables.js");
+const { userData } = require("../modules/user-data.js");
 
 module.exports = {
 	name: 'user',

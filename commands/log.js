@@ -1,5 +1,5 @@
-const { db } = require("../../index.js");
-const { logHelp } = require("../functions/help.js")
+const { db } = require("../alpha-variables.js");
+const { logHelp } = require("../modules/help.js")
 
 module.exports = {
 	name: 'log',

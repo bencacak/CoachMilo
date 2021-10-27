@@ -6,15 +6,10 @@ const { prefix } = require('./config.json');
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 
-//Imports Replit Database
-const Database = require("@replit/database");
-const db = new Database();
-module.exports.db = db;
-
-const commandFiles = fs.readdirSync('./modules/commands').filter(file => file.endsWith('.js'));
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
-	const command = require(`./modules/commands/${file}`);
+	const command = require(`./commands/${file}`);
 	// set a new item in the Collection
 	// with the key as the command name and the value as the exported module
 	client.commands.set(command.name, command);
@@ -40,13 +35,9 @@ client.on('message', msg => {
 
 //Logs to the console when it is ready
 client.once('ready', () => {
-	console.log(client.user.tag + " is live!");
+    console.log(client.user.tag + " is live!");
     client.user.setActivity("Chase Squirrely");
-    //db.list().then(keys => {console.log(keys)});
-    //db.get("696555195324432446").then(value => {console.log(value)});
-    //db.delete("userName").then(() => {});
-
 });
 
-//Gets the token from the .env
+// Logs the bot into the Discord client
 client.login(process.env.TOKEN);

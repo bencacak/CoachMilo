@@ -1,4 +1,3 @@
-const { db } = require("../../index.js");
 const Discord = require("discord.js");
 
 const userData = (user, values) => {

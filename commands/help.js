@@ -1,4 +1,4 @@
-const helpMe = require("../functions/help.js");
+const helpMe = require("../modules/help.js");
 
 module.exports = {
 	name: 'help',

@@ -1,18 +1,13 @@
 {
-  "name": "Coach Milo",
-  "version": "2.3.0",
+  "name": "CoachMilo",
+  "version": "2.3.1",
   "description": "A health and fitness conpanion to discord.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "discord",
-    "bot",
-    "health",
-    "fitness"
-  ],
-  "author": "Ben Cacak",
+  "keywords": [],
+  "author": "BenCacak",
   "license": "GPLv3",
   "dependencies": {
     "@replit/database": "^2.0.1",
