@@ -1,5 +1,11 @@
 # Coach Milo Version Update Log
 
+## 6 November, 2021
+### v2.4.0
+#### New Features
+- New body fat percentage calculator with commend `!bfp`
+- New calorie needs calculator with command `!kcal`
+
 ---
 
 ## 27 October, 2021

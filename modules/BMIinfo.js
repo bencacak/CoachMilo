@@ -18,7 +18,7 @@ const findHealthStatus = bmi => {
     return healthStatus;
   };
 
-const imperialBMI = (height, weight, bmi) => {
+const imperialBMI = (height, weight, bmi, img) => {
   
   const output = new Discord.MessageEmbed()
     .setColor('#000')
@@ -26,8 +26,7 @@ const imperialBMI = (height, weight, bmi) => {
     .setURL('https://www.npmjs.com/package/fitness-calculator')
     .setAuthor('Coach Milo')
     .setDescription(`You are **${findHealthStatus(bmi)}**.`)
-    .attachFiles(['./assets/milo.jpg'])
-    .setThumbnail('attachment://milo.jpg')
+    .setThumbnail(img)
     .addFields(
       { name: 'Your BMI', value: bmi },
       { name: '\u200B', value: '\u200B' },
@@ -49,7 +48,7 @@ const imperialBMI = (height, weight, bmi) => {
   return output;
 };
 
-const metricBMI = (height, weight, bmi) => {
+const metricBMI = (height, weight, bmi, img) => {
   
   const output = new Discord.MessageEmbed()
     .setColor('#000')
@@ -57,8 +56,7 @@ const metricBMI = (height, weight, bmi) => {
     .setURL('https://www.npmjs.com/package/fitness-calculator')
     .setAuthor('Coach Milo')
     .setDescription(`You are **${findHealthStatus(bmi)}**.`)
-    .attachFiles(['./assets/milo.jpg'])
-    .setThumbnail('attachment://milo.jpg')
+    .setThumbnail(img)
     .addFields(
       { name: 'Your BMI', value: bmi },
       { name: '\u200B', value: '\u200B' },

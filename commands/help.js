@@ -16,15 +16,15 @@ module.exports = {
 
         if (subCommand === "tdee" || subCommand === "TDEE") {
 
-        msg.channel.send(helpMe.tdeeHelp);
+            msg.channel.send(helpMe.tdeeHelp);
 
         } else if (subCommand === "bmi" || subCommand === "BMI") {
 
-        msg.channel.send(helpMe.bmiHelp);
+            msg.channel.send(helpMe.bmiHelp);
 
         } else if (subCommand === "pace") {
 
-        msg.channel.send(helpMe.paceHelp);
+            msg.channel.send(helpMe.paceHelp);
 
         } else if (subCommand === "log") {
 
@@ -34,9 +34,17 @@ module.exports = {
 
             msg.channel.send(helpMe.userHelp);
 
+        } else if (subCommand === "fat") {
+
+            msg.channel.send(helpMe.fatHelp);
+            
+        } else if (subCommand === "kcal") {
+
+            msg.channel.send(helpMe.kcalHelp);
+
         } else {   
 
-        msg.channel.send(helpMe.readMe);
+            msg.channel.send(helpMe.readMe);
 
         };
 

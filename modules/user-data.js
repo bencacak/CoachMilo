@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-const userData = (user, values) => {
+const userData = (user, values, img) => {
 
     let height = "in";
     let weight = "lb";
@@ -15,9 +15,8 @@ const userData = (user, values) => {
         .setTitle(`${user}`)
         //.setURL('https://www.npmjs.com/package/fitness-calculator')
         .setAuthor('Coach Milo')
-        .setDescription(`Here is what I have in my data base!`)
-        .attachFiles(['./assets/milo.jpg'])
-        .setThumbnail('attachment://milo.jpg')
+        .setDescription(`Here is what I have in my database!`)
+        .setThumbnail(img)
         .addFields(
         { name: "Height:", value: `${values[0]} ${height}`, inline: true },
         { name: "Weight:", value: `${values[1]} ${weight}`, inline: true },

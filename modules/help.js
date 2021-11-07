@@ -96,10 +96,37 @@ const userHelp = [
     "Use \`!user\` to show stats"
 ];
 
+const fatHelp = [
+    "**Find Out Your Body Fat Percentage**",
+    " ",
+    "*Syntax:* \`!fat <neck> <waist> <hips>\`",
+    " ",
+    "```",
+    "<neck> number in inches or centimeters only",
+    "<waist> number in inches or centimeters only",
+    "<hips> number in inches or centimeters only",
+    "--- <hips> required for females only",
+    "```"
+];
 
-module.exports.readMe = readMe;
-module.exports.tdeeHelp = tdeeHelp;
-module.exports.paceHelp = paceHelp;
-module.exports.bmiHelp = bmiHelp;
-module.exports.logHelp = logHelp;
-module.exports.userHelp = userHelp;
+const kcalHelp = new Discord.MessageEmbed()
+    .setColor('#000')
+    .setTitle('\`!kcal\` Command Help')
+    .setURL("https://github.com/bencacak/CoachMilo/blob/main/README.md")
+    .setAuthor("@Coach Milo, et al.")
+    .setDescription(`Click the link to find out more about my commands. Looking for assistance for a specific command? Try \`!help <command>\` to solve your problem.`)
+    .attachFiles(['./assets/milo.jpg'])
+    .setThumbnail('attachment://milo.jpg')
+    .addFields(
+        { name: 'Syntax:', value: '\`!kcal <activity level>\`', inline: true },
+        { name: 'Example:', value: '\`!kcal 2\`', inline: true },
+        { name: '\u200B', value: '\u200B' },
+        { name: 'Sedentary:', value: '\`sedentary\` or \`1\`', inline: true },
+        { name: 'Light Activity:', value: '\`light\` or \`2\`', inline: true },
+        { name: 'Moderate Activity:', value: '\`moderate\` or \`3\`', inline: true },
+        { name: 'Heavy Activity:', value: '\`heavy\` or \`4\`', inline: true },
+        { name: 'Extreme Activity:', value: '\`extreme\` or \`5\`', inline: true },
+    )
+    .setTimestamp()
+    .setFooter('Meow Meow');
+module.exports = { readMe, kcalHelp, fatHelp, userHelp, logHelp, paceHelp, bmiHelp, tdeeHelp }

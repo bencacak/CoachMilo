@@ -28,7 +28,11 @@ module.exports = {
             msg.reply("I have set up your user profile!")
             msg.channel.send("Use \`!help log\` to learn how to log your data!")
         } else {
-            db.get(userID).then(values => {msg.channel.send(userData(user, values))});
+            try{
+            db.get(userID).then(values => {msg.channel.send(userData(user, values, msg.author.avatarURL()))});
+            } catch {
+                msg.reply("I don't think you have set up a profile yet. Use \`!user set\` to initiate this feature for yourself.")
+            }
         };
         
 	},
