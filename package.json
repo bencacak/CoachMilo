@@ -1,6 +1,6 @@
 {
   "name": "CoachMilo",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "description": "A health and fitness conpanion to discord.",
   "main": "index.js",
   "scripts": {

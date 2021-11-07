@@ -84,6 +84,37 @@
     *Message embed with results*
 ```
 
+#### `!fat`
+
+- The `!fat` command will calculate your estimated body fat using the U.S. Navy method.
+- *Syntax*: `!fat <neck circumference> <waist circumference> <hip circumference for women only>`
+    - Accepted arguments:
+        ```
+        <neck circumference> Number in centimeters or inches depending on user setting
+        <waist circumference> Number in centimeters or inches depending on user setting
+        <hip circumference> Number in centimeters or inches depending on user setting -- required for user who have profile sex set to female
+        ```
+
+#### `!kcal`
+
+- The `!kcal` command will calculate the necessary deficit or surplus one needs to meet their goals based on a specified activity level.
+- *Syntax*: `!kcal <activity level>`
+    - Accepted arguments:
+        ```
+        <1> or <sedentary>
+        <2> or <light>
+        <3> or <moderate>
+        <4> or <heavy>
+        <5> or <extreme>
+        ```
+    - *Example*:
+        ```
+        // Input:
+        !kcal 2
+
+        // Output:
+        <message embed with calculated deficits and links to optional macronutrient goals>
+        ```
 #### `!help`
 - Use `!help` for command help.
 - `!help < argument >` will summon a message embed with a solution to a specific problem.

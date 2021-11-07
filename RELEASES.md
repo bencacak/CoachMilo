@@ -1,5 +1,14 @@
 # Coach Milo Version Update Log
 
+---
+
+## 7 November, 2021
+### v2.5.0
+#### New Feature
+- New `!kcal` command!
+
+---
+
 ## 6 November, 2021
 ### v2.4.0
 #### New Features
